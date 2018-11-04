@@ -1,28 +1,33 @@
-# Monasca Bootcamp, OpenStack Summit Sydney 2017
+# OpenStack Summit Berlin 2018
 
-## Running the notebook on your workshop instance
+## Monitoring Hands-On Workshop
+
+## Monasca Bootcamp
+
 ---
 
-* Download your private SSH key (monasca-bootcamp.pem) from
-  [here](https://drive.google.com/open?id=0B799R_-18_PFVFRlejZOVkdWb0E).
+* Download your private SSH key (monasca-bootcamp-2018.pem) from
+  [here](https://github.com/martinchacon/monasca-bootcamp/blob/master/setup/files/monasca-bootcamp-2018.pem).
 
 * Change permissions
 
-    * `chmod 600 monasca-bootcamp.pem`
+    ```bash
+    chmod 600 monasca-bootcamp-2018.pem
+    ```
 
-* Set up the SSH tunnel to your instance
+* SSH to your instance and pull the Bootcamp
 
-    * `ssh -i monasca-bootcamp.pem -NfL localhost:8889:localhost:8889 ubuntu@<your_instance_ip>`
+    ```bash
+    ssh -i monasca-bootcamp.pem ubuntu@<your_instance_ip>
+    cd monasca-bootcamp
+    git pull
+   ```
 
-* SSH to your instance and start the notebook
+* Start the notebook
 
-    * `ssh -i monasca-bootcamp.pem ubuntu@<your_instance_ip>`
-
-    * `cd monasca-bootcamp`
-
-    * `git pull`
-
-    * `/opt/jupyter/bin/jupyter notebook --no-browser --port=8889 --notebook-dir .`
+    ```bash
+    /opt/jupyter/bin/jupyter notebook --no-browser --ip=<your_instance_ip>  --port=8889 --notebook-dir .
+   ```
 
 * Copy the URL and open it in your local browser.
 
@@ -30,7 +35,7 @@
 
 ### For Windows users
 
-* You can use your favourite SSH client.
+* You can use your favorite SSH client.
 
 * We recommend Git BASH, BASH emulator with SSH client.
 
@@ -50,10 +55,12 @@
 * Remember to save the session settings.
 
 ## Running the notebook on your own
+
 ---
+
 This is an iPython/Jupyter notebook that you can run on your own.
 You will require:
 
 * Ubuntu Linux 16.04
 
-* and follow the [setup procedure](/setup/setup_procedure)
+* and follow the [setup procedure](/setup/README.md)
