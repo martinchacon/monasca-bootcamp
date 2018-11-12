@@ -46,12 +46,6 @@
 * Set the private key for authentication in `Connection -> SSH -> Auth`.
   Choose [putty_key.ppk](https://chaconpiza.com/putty_key.ppk) as your private key.
 
-* Add the SSH tunnel in `Connection -> SSH -> Tunnels` with:
-
-    * `8889` as *Source port*.
-
-    * `127.0.0.1:8889` as *Destination*.
-
 * Remember to save the session settings.
 
 ## Running the notebook on your own
