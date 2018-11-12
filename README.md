@@ -6,7 +6,7 @@
 
 ---
 
-* Download your private SSH key (monasca-bootcamp-2018.pem) from
+* Download your private SSH key (monasca-berlin2018.pem) from
   [here](https://chaconpiza.com/monasca-berlin2018.pem).
 
 * Change permissions
@@ -18,7 +18,7 @@
 * SSH to your instance and pull the Bootcamp
 
     ```bash
-    ssh -i monasca-bootcamp.pem ubuntu@<your_instance_ip>
+    ssh -i monasca-berlin2018.pem ubuntu@<your_instance_ip>
     cd monasca-bootcamp
     git pull
    ```
