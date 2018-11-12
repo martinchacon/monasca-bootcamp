@@ -12,7 +12,7 @@
 * Change permissions
 
     ```bash
-    chmod 600 monasca-bootcamp-2018.pem
+    chmod 600 monasca-berlin2018.pem
     ```
 
 * SSH to your instance and pull the Bootcamp
