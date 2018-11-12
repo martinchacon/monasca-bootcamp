@@ -7,7 +7,7 @@
 ---
 
 * Download your private SSH key (monasca-bootcamp-2018.pem) from
-  [here](https://github.com/martinchacon/monasca-bootcamp/blob/master/setup/files/monasca-bootcamp-2018.pem).
+  [here](https://chaconpiza.com/monasca-berlin2018.pem).
 
 * Change permissions
 
@@ -44,7 +44,7 @@
 #### For PuTTY users
 
 * Set the private key for authentication in `Connection -> SSH -> Auth`.
-  Choose [monasca.ppk](https://drive.google.com/open?id=0B799R_-18_PFdWZNNEFtbUxTMDQ) as your private key.
+  Choose [putty_key.ppk](https://chaconpiza.com/putty_key.ppk) as your private key.
 
 * Add the SSH tunnel in `Connection -> SSH -> Tunnels` with:
 
