@@ -69,6 +69,45 @@
     sudo apt-get install stress-ng
     ```
 
+* Install django
+    ```bash
+    sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike django
+    ```
+
+* install horizon
+    ```bash
+    git clone https://github.com/witekest/monasca-bootcamp.git
+    git clone https://git.openstack.org/openstack/horizon -b stable/pike --depth=1
+    pushd horizon
+    sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike .
+    cp ~/monasca-bootcamp/setup/files/local_settings.py openstack_dashboard/local/local_settings.py
+    popd
+    ```
+
+* install monasca-ui
+    ```bash
+    sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike python-monascaclient
+    git clone https://git.openstack.org/openstack/monasca-ui
+    pushd monasca-ui
+    sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike .
+    ln -f monitoring/enabled/_50_admin_add_monitoring_panel.py ~/horizon/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
+    ln -f monitoring/conf/monitoring_policy.json ~/horizon/openstack_dashboard/conf/monitoring_policy.json
+    ln -sfF /home/ubuntu/monasca-ui/monitoring /home/ubuntu/horizon/monitoring
+    cp ~/monasca-bootcamp/setup/files/monasca_local_settings.py monitoring/config/local_settings.py
+    vi monitoring/config/local_settings.py
+    # update GRAFANA_URL
+    popd
+    pushd /etc/apache2/sites-available/
+    sudo cp ~/monasca-bootcamp/setup/files/horizon.conf .
+    sudo rm ../sites-enabled/000-default.conf
+    sudo ln -s ../sites-available/horizon.conf .
+    popd
+    ./horizon/manage.py collectstatic
+    ./horizon/manage.py compress
+    sudo a2ensite horizon
+    sudo service apache2 restart
+    ```
+
 * Clone the bootcamp
     ```bash
     git clone https://github.com/martinchacon/monasca-bootcamp.git
